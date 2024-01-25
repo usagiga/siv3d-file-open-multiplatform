@@ -76,6 +76,9 @@
     <Filter Include="リソース ファイル\Example\Well">
       <UniqueIdentifier>{eb86b9be-05b8-45c6-89c8-f91a5437157c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="リソース ファイル\Assets">
+      <UniqueIdentifier>{2ccd33f0-36d9-4c3d-ba51-af33283c4058}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -275,7 +278,7 @@
     </None>
     <None Include="Engine\Shaders\D3D11\DeferredMesh_Shadow.vs">
       <Filter>リソース ファイル\Engine\Shaders\D3D11</Filter>
-    </None>    
+    </None>
     <None Include="Engine\Shaders\D3D11\DeferredMesh_Textured.ps">
       <Filter>リソース ファイル\Engine\Shaders\D3D11</Filter>
     </None>
@@ -379,7 +382,19 @@
     </Text>
     <Text Include="Example\Shaders\Wave2DPointSprites.hlsl">
       <Filter>リソース ファイル\Example\Shaders</Filter>
-    </Text>   
+    </Text>
+    <Text Include="Assets\10-foo.txt">
+      <Filter>リソース ファイル\Assets</Filter>
+    </Text>
+    <Text Include="Assets\20-bar.txt">
+      <Filter>リソース ファイル\Assets</Filter>
+    </Text>
+    <Text Include="Assets\30-baz.txt">
+      <Filter>リソース ファイル\Assets</Filter>
+    </Text>
+    <Text Include="Assets\100-qux.txt">
+      <Filter>リソース ファイル\Assets</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <Media Include="Example\Sound.mp3">
