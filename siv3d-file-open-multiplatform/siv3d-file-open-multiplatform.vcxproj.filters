@@ -84,6 +84,15 @@
     <ClCompile Include="Main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="Server\Domain\Models\Poetry.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Scenes\Test\scene.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Commons\GameWorker\WorkerContainer.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -327,6 +336,10 @@
     <None Include="Example\Well\Well.wavefrontobj">
       <Filter>リソース ファイル\Example\Well</Filter>
     </None>
+    <None Include="Scenes\README.md" />
+    <None Include="Commons\GameWorker\README.md" />
+    <None Include="Server\README.md" />
+    <None Include=".editorconfig" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Engine\dll(x64)\libmpg123\COPYING.txt">
@@ -408,5 +421,22 @@
     <Font Include="Example\YomogiFont.ttf">
       <Filter>リソース ファイル\Example</Filter>
     </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Server\Domain\Models\Poetry.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Scenes\Test\scene.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Commons\GameWorker\Worker.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Commons\GameWorker\WorkerContainer.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Commons\GameWorker\GameWorker.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

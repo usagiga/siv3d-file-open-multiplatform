@@ -99,7 +99,8 @@
       <SDLCheck>true</SDLCheck>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalOptions>/std:c++latest</AdditionalOptions>
+      <AdditionalOptions>/std:c++latest /source-charset:utf-8 /execution-charset:utf-8</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -116,7 +117,8 @@
       <SDLCheck>true</SDLCheck>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalOptions>/std:c++latest</AdditionalOptions>
+      <AdditionalOptions>/std:c++latest /source-charset:utf-8 /execution-charset:utf-8</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -135,7 +137,8 @@
       <SDLCheck>true</SDLCheck>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalOptions>/std:c++latest</AdditionalOptions>
+      <AdditionalOptions>/std:c++latest /source-charset:utf-8 /execution-charset:utf-8</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -156,7 +159,8 @@
       <SDLCheck>true</SDLCheck>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalOptions>/std:c++latest</AdditionalOptions>
+      <AdditionalOptions>/std:c++latest /source-charset:utf-8 /execution-charset:utf-8</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -166,7 +170,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Commons\GameWorker\WorkerContainer.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Scenes\Test\scene.cpp" />
+    <ClCompile Include="Server\Domain\Models\Poetry.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc" />
@@ -184,6 +191,8 @@
     <Image Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>
+    <None Include=".editorconfig" />
+    <None Include="Commons\GameWorker\README.md" />
     <None Include="Engine\Assets\engine_textures.s3a" />
     <None Include="Engine\Config.ini" />
     <None Include="Engine\dll(x64)\D3D\d3dcompiler_47.dll" />
@@ -252,6 +261,8 @@
     <None Include="Example\Test.json" />
     <None Include="Example\Well\Well.mtl" />
     <None Include="Example\Well\Well.wavefrontobj" />
+    <None Include="Scenes\README.md" />
+    <None Include="Server\README.md" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Assets\10-foo.txt" />
@@ -283,6 +294,13 @@
   </ItemGroup>
   <ItemGroup>
     <Font Include="Example\YomogiFont.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Commons\GameWorker\GameWorker.hpp" />
+    <ClInclude Include="Commons\GameWorker\Worker.hpp" />
+    <ClInclude Include="Commons\GameWorker\WorkerContainer.hpp" />
+    <ClInclude Include="Scenes\Test\scene.hpp" />
+    <ClInclude Include="Server\Domain\Models\Poetry.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
