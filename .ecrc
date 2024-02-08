@@ -1,0 +1,21 @@
+{
+  "Verbose": false,
+  "IgnoreDefaults": false,
+  "Exclude": [
+    "^\\.ecrc$",
+    "\\.sln$",
+    "\\.vcxproj$",
+    "\\.vcxproj.filters$",
+    "Resource\\.rc$",
+    "^siv3d-file-open-multiplatform/Engine"
+  ],
+  "SpacesAfterTabs": false,
+  "Disable": {
+    "EndOfLine": false,
+    "Indentation": false,
+    "IndentSize": false,
+    "InsertFinalNewline": false,
+    "TrimTrailingWhitespace": false,
+    "MaxLineLength": false
+  }
+}
