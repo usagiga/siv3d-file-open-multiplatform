@@ -5,8 +5,8 @@ on:
   pull_request:
 
 jobs:
-  lint:
-    name: Run linters
+  check-format:
+    name: "Run clang-format"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
