@@ -191,7 +191,6 @@
     <Image Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include=".editorconfig" />
     <None Include="Commons\GameWorker\README.md" />
     <None Include="Engine\Assets\engine_textures.s3a" />
     <None Include="Engine\Config.ini" />

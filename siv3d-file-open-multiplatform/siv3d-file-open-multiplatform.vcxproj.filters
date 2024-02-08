@@ -339,7 +339,6 @@
     <None Include="Scenes\README.md" />
     <None Include="Commons\GameWorker\README.md" />
     <None Include="Server\README.md" />
-    <None Include=".editorconfig" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Engine\dll(x64)\libmpg123\COPYING.txt">

@@ -1,0 +1,9 @@
+BasedOnStyle: LLVM
+
+---
+Language: Cpp
+DerivePointerAlignment: false
+PointerAlignment: Left
+FixNamespaceComments: false
+NamespaceIndentation: All
+BreakBeforeBraces: Allman

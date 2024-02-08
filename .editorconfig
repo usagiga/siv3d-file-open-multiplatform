@@ -35,6 +35,11 @@ indent_size = 2
 [*.sh]
 indent_style = tab
 
+[*.{c,cpp,h,hpp}]
+# To configure their rules, use clang-format
+indent_style = unset
+indent_size = unset
+
 [*.{pl,t}]
 # Default
 
