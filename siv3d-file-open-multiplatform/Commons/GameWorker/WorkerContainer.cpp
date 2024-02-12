@@ -15,8 +15,10 @@ namespace GameWorker
     {
       for (auto worker : this->workers)
       {
-        worker.Update();
+        // worker.Update();
       }
     }
   }
+
+  std::vector<Worker> WorkerContainer::workers = std::vector<Worker>();
 }
