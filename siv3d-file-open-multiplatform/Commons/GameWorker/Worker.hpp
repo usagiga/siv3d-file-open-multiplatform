@@ -5,7 +5,7 @@ namespace GameWorker
   class Worker
   {
   public:
-    virtual void Update();
+    // virtual void Update();
 
     /*/// <summary>
     /// RunSync は、同期的にゲームループを実行します。
