@@ -93,9 +93,6 @@
     <ClCompile Include="Server\Interfaces\Repositories\FileSystem\Poetry.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Server\Domain\Models\Poetry.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc">
@@ -440,10 +437,7 @@
     <ClInclude Include="Commons\GameWorker\GameWorker.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Server\Interfaces\Repositories\Poetry.hpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Server\Interfaces\Repositories\Repositories.hpp">
+    <ClInclude Include="Server\Domain\Repositories\Poetry.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Server\Interfaces\Repositories\FileSystem\Poetry.hpp">

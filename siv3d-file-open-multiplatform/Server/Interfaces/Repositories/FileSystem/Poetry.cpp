@@ -1,5 +1,10 @@
 #include <Server/Domain/Models/Poetry.hpp>
+#include <Server/Domain/Repositories/Poetry.hpp>
 #include <Server/Interfaces/Repositories/FileSystem/Poetry.hpp>
+#include <Siv3d/FileSystem.hpp>
+#include <Siv3d/String.hpp>
+#include <Siv3d/TextReader.hpp>
+#include <regex>
 #include <vector>
 
 namespace Server::Interfaces::Repositories::FileSystem
@@ -8,33 +13,7 @@ namespace Server::Interfaces::Repositories::FileSystem
   // Poetry
   //
 
-  FileSystem::Poetry::Poetry(s3d::FilePath path) { this->filePath = path; }
-
-  int Poetry::GetOpus()
-  {
-    // 関数の初回アクセスのみパース
-    if (!this->opusLoaded)
-    {
-      auto fileName = s3d::FileSystem::FileName(this->GetFilePath());
-      std::wsmatch opusMatch;
-
-      auto opusFound =
-          std::regex_match(fileName.str(), opusMatch, this->fileNameRE);
-      if (!opusFound || opusMatch.size() < 2)
-      {
-        this->opus = -1;
-      }
-      else
-      {
-        auto opusStr = opusMatch[1].str();
-        this->opus = std::stoi(opusStr);
-      }
-
-      this->opusLoaded = true;
-    }
-
-    return this->opus;
-  }
+  int Poetry::GetOpus() { return this->opus; }
 
   s3d::String Poetry::GetContent()
   {
@@ -53,15 +32,73 @@ namespace Server::Interfaces::Repositories::FileSystem
 
   s3d::FilePath Poetry::GetFilePath() { return this->filePath; }
 
+  Poetry* Poetry::New(s3d::FilePath path)
+  {
+    auto poetry = new Poetry();
+
+    // filePath
+    poetry->filePath = path;
+
+    // opus
+    std::wsmatch opusMatch;
+
+    auto opusFound =
+        std::regex_match(path.str(), opusMatch, Poetry::fileNameRE);
+    if (!opusFound || opusMatch.size() < 2)
+    {
+      return nullptr;
+    }
+    auto opusStr = opusMatch[1].str();
+    poetry->opus = std::stoi(opusStr);
+
+    return poetry;
+  }
+
   // 内部のロジックでは作品番号以外とっていないので、それ以外は省略
   const std::wregex Poetry::fileNameRE(LR"(^(\d+)-.+$)");
+
+  //
+  // GetPoetriesFileSystemProps
+  //
+
+  s3d::FilePath FileSystem::GetPoetriesFileSystemProps::GetTargetDirectory()
+  {
+    return this->targetDirectory;
+  }
+  void
+  FileSystem::GetPoetriesFileSystemProps::SetTargetDirectory(s3d::FilePath dir)
+  {
+    if (s3d::FileSystem::IsDirectory(dir))
+    {
+      throw LR"(argument "dir" must point directory)";
+    }
+
+    this->targetDirectory = dir;
+  }
 
   //
   // PoetryFileSystemRepository
   //
 
-  std::vector<Domain::Model::Poetry> PoetryFileSystemRepository::GetPoetries()
+  std::vector<Domain::Model::Poetry*> PoetryFileSystemRepository::GetPoetries(
+      Domain::Repositories::GetPoetriesProps* props)
   {
-    return std::vector<Domain::Model::Poetry>();
+    std::vector<Domain::Model::Poetry*> result;
+    auto propsParsed = static_cast<GetPoetriesFileSystemProps*>(props);
+    auto targetDir = propsParsed->GetTargetDirectory();
+
+    auto filePaths = s3d::FileSystem::DirectoryContents(targetDir);
+    for (auto filePath : filePaths)
+    {
+      auto p = Poetry::New(filePath);
+
+      // もし Poetry でないパスが渡されていた場合、そのパスは処理をしない
+      if (p == nullptr)
+        continue;
+
+      result.push_back(p);
+    }
+
+    return result;
   }
 }

@@ -177,7 +177,6 @@
     <ClCompile Include="Commons\GameWorker\WorkerContainer.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Scenes\Test\scene.cpp" />
-    <ClCompile Include="Server\Domain\Models\Poetry.cpp" />
     <ClCompile Include="Server\Interfaces\Repositories\FileSystem\Poetry.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -306,8 +305,7 @@
     <ClInclude Include="Scenes\Test\scene.hpp" />
     <ClInclude Include="Server\Domain\Models\Poetry.hpp" />
     <ClInclude Include="Server\Interfaces\Repositories\FileSystem\Poetry.hpp" />
-    <ClInclude Include="Server\Interfaces\Repositories\Poetry.hpp" />
-    <ClInclude Include="Server\Interfaces\Repositories\Repositories.hpp" />
+    <ClInclude Include="Server\Domain\Repositories\Poetry.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,22 +1,22 @@
 #pragma once
 
 #include <Server/Domain/Models/Poetry.hpp>
-#include <Server/Interfaces/Repositories/Poetry.hpp>
-#include <Siv3d.hpp>
+#include <Server/Domain/Repositories/Poetry.hpp>
+#include <Siv3d/String.hpp>
 
 namespace Server::Interfaces::Repositories::FileSystem
 {
-  class Poetry : Domain::Model::Poetry
+  class Poetry : public Domain::Model::Poetry
   {
   public:
-    Poetry(s3d::FilePath path);
     int GetOpus() override;
     s3d::String GetContent() override;
     s3d::FilePath GetFilePath();
 
+    static Poetry* New(s3d::FilePath path);
+
   private:
     int opus = -1;
-    bool opusLoaded = false;
     s3d::String content = L"";
     bool contentLoaded = false;
     s3d::FilePath filePath = L"";
@@ -30,8 +30,20 @@ namespace Server::Interfaces::Repositories::FileSystem
     const static std::wregex fileNameRE;
   };
 
-  class PoetryFileSystemRepository : Repositories::PoetryRepository
+  class GetPoetriesFileSystemProps
+      : public Domain::Repositories::GetPoetriesProps
   {
-    std::vector<Domain::Model::Poetry> GetPoetries();
+  public:
+    s3d::FilePath GetTargetDirectory();
+    void SetTargetDirectory(s3d::FilePath dir);
+
+  private:
+    s3d::FilePath targetDirectory = L"";
+  };
+
+  class PoetryFileSystemRepository : Domain::Repositories::PoetryRepository
+  {
+    std::vector<Domain::Model::Poetry*>
+    GetPoetries(Domain::Repositories::GetPoetriesProps* props) override;
   };
 }

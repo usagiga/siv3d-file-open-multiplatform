@@ -8,7 +8,7 @@ namespace Server::Domain::Model
   class Poetry
   {
   public:
-    virtual int GetOpus();
-    virtual s3d::String GetContent();
+    virtual int GetOpus() = 0;
+    virtual s3d::String GetContent() = 0;
   };
 }
